@@ -28,6 +28,7 @@ This will rerun the `docker build` command with sudo privileges.
 ```
 $ docker run -p 8080:8080 -e FILE_PATHS="/file/path/one,/file/path/two" -e NUMOFWORDS=<number> <image-name>
 ```
-Replace `/file/path/one` and `/file/path/two` with the files you wish to use (you can include more than two), as well as `<number>` with an integer representing the number of words you wish to display. **Note:** The paths to the files *must* be separated by a comma ','. Replace `<image-name>` with the name you provided in the `docker build` command in the previous step.
+Replace `/file/path/one` and `/file/path/two` with the files you wish to use (you can include more than two), as well as `<number>` with an integer representing the number of words you wish to display. 
+**Note:** The paths to the files *must* be separated by a comma ','. Replace `<image-name>` with the name you provided in the `docker build` command in the previous step.
 
 3. Connect to one of the displayed addresses you see on the screen from the end of the previous step (e.g., 127.0.0.1:8080). The result should be displayed in your browser in JSON format with the maximum occurring word and the value of its occurrences.
