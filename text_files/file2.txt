@@ -1,0 +1,7 @@
+cat car bicycle
+table chair sofa
+computer banana phone
+book pen paper
+water juice milk banana cat moon
+
+two tWo three five
