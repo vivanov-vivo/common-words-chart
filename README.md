@@ -28,7 +28,7 @@ The Dockerfile creates an image based on the Python 3.9 slim image, which will r
 These variables will indicate the .txt files we want to include in our word counting as well as the number of words to display in the result. **Note:** The files on which the code executes don't have to be exclusively inside `/app/text_files/`. They can exist elsewhere on the container. As long as you know the path and specify it when running a container, the code will include these files in its execution.
 
 ### How to run in Docker
-1. After downloading and extracting the contents of the .zip file (or pulling the repository), go to common-words-chart directory
+1. After downloading and extracting the contents of the .zip file (or pulling the repository), locate in the directory common-words-chart
 2. run the following command:
 ```
 $ docker build -t <image-name> .
