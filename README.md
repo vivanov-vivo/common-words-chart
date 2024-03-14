@@ -6,6 +6,7 @@ A Python application that runs in a containerized Docker environment. Upon recei
 - Dockerfile
 - Python program
 - Directory with .txt test files
+- kubernetes yaml file
 
 ### How it works
 The Dockerfile creates an image based on the Python 3.9 slim image, which will run our script.py application. Inside a container, which will be created based on the image, `/app` will be the working directory of the code. This directory will contain the copied test files with which the code executes: `/app/text_files/`. Two environmental variables will be used to run the script:
@@ -32,3 +33,5 @@ Replace `/file/path/one` and `/file/path/two` with the files you wish to use (yo
 **Note:** The paths to the files *must* be separated by a comma ','. Replace `<image-name>` with the name you provided in the `docker build` command in the previous step.
 
 3. Connect to one of the displayed addresses you see on the screen from the end of the previous step (e.g., 127.0.0.1:8080). The result should be displayed in your browser in JSON format with the maximum occurring word and the value of its occurrences.
+
+### Deployment in Kubernetes
