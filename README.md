@@ -11,15 +11,15 @@ A Python application that runs in a containerized Docker environment. Upon recei
 ### Prerequisites
 To complete this tutorial, you will need the following:
 
-Free Docker Account
+- Free Docker Account
         You can [sign-up](https://hub.docker.com/) for a free Docker account and receive free unlimited public repositories 
-Docker running locally
+- Docker running locally
       [Instructions to download and install Docker](https://docs.docker.com/desktop/)
-kubectl installed 
+- kubectl installed 
       [Instaructions to install kubectl](https://kubernetes.io/docs/tasks/tools/)
-local Kubernetes, for example minikube - [Instructions](https://minikube.sigs.k8s.io/docs/start/)
-minikube and docker configuration , enabling docker to push images to minikube’s registry - [Instructions](https://minikube.sigs.k8s.io/docs/handbook/registry/)
-local docker registry configured - [Instructions](https://www.docker.com/blog/how-to-use-your-own-registry-2/)
+- local Kubernetes, for example minikube - [Instructions](https://minikube.sigs.k8s.io/docs/start/)
+- minikube and docker configuration , enabling docker to push images to minikube’s registry - [Instructions](https://minikube.sigs.k8s.io/docs/handbook/registry/)
+- local docker registry configured - [Instructions](https://www.docker.com/blog/how-to-use-your-own-registry-2/)
 
 ### How it works
 The Dockerfile creates an image based on the Python 3.9 slim image, which will run our script.py application. Inside a container, which will be created based on the image, `/app` will be the working directory of the code. This directory will contain the copied test files with which the code executes: `/app/text_files/`. Two environmental variables will be used to run the script:
@@ -29,7 +29,6 @@ These variables will indicate the .txt files we want to include in our word coun
 
 ### How to run in Docker
 1. After downloading and extracting the contents of the .zip file (or pulling the repository), go to common-words-chart directory
-```
 2. run the following command:
 ```
 $ docker build -t <image-name> .
