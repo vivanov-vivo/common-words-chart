@@ -55,7 +55,12 @@ Replace `/file/path/one` and `/file/path/two` with the files you wish to use (yo
 ```
 $ kubectl apply -f app_folder_script.yaml
 ```
-3. check the deployment is running:
+3. check the all new resources are running:
 ```
-$ kubectl get pod
+$ kubectl get all -n common-words-namespace
 ```
+4. get url to access application:
+```
+$ minikube service common-words-service -n common-words-namespace --url
+```
+5. try to open it in your browser (ensure there is no proxy set).
