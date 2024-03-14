@@ -1,0 +1,68 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: common-words-namespace
+
+---
+
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: common-words-configmap
+  namespace: common-words-namespace
+data:
+  folder-path: "/app/text_files/"
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: common-words-deployment
+  namespace: common-words-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: common-words
+  template:
+    metadata:
+      labels:
+        app: common-words
+    spec:
+      containers:
+      - name: common-words-container
+        image: localhost:5000/common-words-img:latest
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 8080
+        env:
+        - name: FILE_PATHS
+          value: "text_files/file1.txt,text_files/file2.txt,text_files/file3.txt,text_files/file4.txt"
+        - name: NUMOFWORDS
+          value: "3"
+        - name: FOLDER_PATH
+          valueFrom:
+            configMapKeyRef:
+              name: common-words-configmap
+              key: folder-path
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: common-words-service
+  namespace: common-words-namespace
+spec:
+  type: ClusterIP
+  ports:
+  - port: 8080
+    targetPort: 8080
+    protocol: TCP
+  selector:
+    app: common-words
+
+---
+
+
